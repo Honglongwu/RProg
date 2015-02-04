@@ -10,8 +10,27 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
 ```{r}
-summary(cars)
+# figure out two lines' intersection
+# 3x + 2y = 7
+# -6x + 6y = 6
+# paramater matrix
+pm <- matrix(c(3,2,-6,6),nrow=2,byrow=T)
+result <- matrix(c(7,6),nrow=2)
+pt <- solve(pm) %*% result
+x <- pt[1]
+y <- pt[2]
 ```
+and then, I *test* the function of R that calculate the range, mean, median and sd value.
+
+```{r}
+myfunction <- function(x=rnorm(10)){
+  if (!is.vector(x))
+    print("please check your inpur!!!")
+  result <- list(range=range(x), mean=mean(x), median=median(x),sd=sd(x))
+  print(result)
+}
+```
+
 
 You can also embed plots, for example:
 
